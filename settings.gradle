@@ -1,0 +1,2 @@
+include ':app', 'openCV401Library'
+rootProject.name='videopanorama'

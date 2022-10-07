@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FFmpeg and OpenCV Stitcher</string>
+    <string name="stitch_mode_scans">OpenCV Scans</string>
+    <string name="stitch_mode_panorama">OpenCV Panorama</string>
+    <string name="pick_images_button">Pick images</string>
+    <string name="pick_images_videos_for_frames">Pick video for separate to Stitcher</string>
+    <string name="processing_images">Processing images</string>
+    <string name="only_numbers_allowed">Only numbers allowed..</string>
+    <string name="set_frames_value">Get frame every (value in second):</string>
+</resources>
