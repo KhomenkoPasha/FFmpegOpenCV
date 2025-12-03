@@ -24,7 +24,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.khom.videopanorama.*
+import com.khom.videopanorama.FileUtil
+import com.khom.videopanorama.ImageStitcher
+import com.khom.videopanorama.R
+import com.khom.videopanorama.StitcherInput
+import com.khom.videopanorama.StitcherOutput
 import com.khom.videopanorama.StitcherOutput.Failure
 import com.khom.videopanorama.StitcherOutput.Success
 import com.khom.videopanorama.worker.GlobalScopeDispIOWorker
@@ -37,13 +41,11 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import org.bytedeco.javacpp.opencv_stitching
 import org.opencv.android.BaseLoaderCallback
-import org.opencv.android.LoaderCallbackInterface
-import org.opencv.android.OpenCVLoader
 import wseemann.media.FFmpegMediaMetadataRetriever
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
+import java.util.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -79,12 +81,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setUpViews()
         setUpStitcher()
-        if (!OpenCVLoader.initDebug()) {
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback)
-        } else {
-            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS)
-        }
-
         if (!hasPermissions(this, *PERMISSIONS)) {
             val PERMISSION_ALL = 1
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL)

@@ -1,21 +1,31 @@
 buildscript {
-    ext.kotlinVersion = '1.5.32'
+    ext.kotlin_version = "1.9.24"
+    ext.google_services_version = '4.4.1'
+    ext.crashlytics_version = "2.9.9"
+
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.android.tools.build:gradle:8.13.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // Google services
+        classpath "com.google.gms:google-services:$google_services_version"
+
+        // Firebase Crashlytics Gradle plugin
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$crashlytics_version"
+
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
-        maven { url "https://jitpack.io" }
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 

@@ -1,2 +1,2 @@
-include ':app', 'openCV401Library'
+include ':app', 'openCVLibrary412'
 rootProject.name='videopanorama'

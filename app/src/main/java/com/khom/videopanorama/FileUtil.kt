@@ -11,6 +11,7 @@ import android.os.Environment.DIRECTORY_PICTURES
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
+import org.opencv.BuildConfig
 import org.opencv.android.Utils
 import org.opencv.core.CvType
 import org.opencv.imgproc.Imgproc
